@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import client from '../lib/client.js';
 // import our seed data:
-import cats from './cats.js';
+import strongest from './data.js';
 
 run();
 
@@ -10,12 +10,12 @@ async function run() {
   try {
 
     await Promise.all(
-      cats.map(cat => {
+      strongest.map(being => {
         return client.query(`
-          INSERT INTO cats (name, type, url, year, lives, is_sidekick)
-          VALUES ($1, $2, $3, $4, $5, $6);
+          INSERT INTO strongest (name, type, description, power, is_good)
+          VALUES ($1, $2, $3, $4, $5);
         `,
-        [cat.name, cat.type, cat.url, cat.year, cat.lives, cat.isSidekick]);
+        [being.name, being.type, being.description, being.power, being.isGood]);
       })
     );
     
