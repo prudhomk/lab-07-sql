@@ -111,6 +111,7 @@ describe('API Routes', () => {
       expect(response.status).toBe(200);
 
       // did it return the data we expected?
+      // eslint-disable-next-line no-undef
       expect(response.body).toEqual(expectedBeings);
 
     });
@@ -121,6 +122,7 @@ describe('API Routes', () => {
     test.skip('GET /api/strongest/:id', async () => {
       const response = await request.get('/api/strongest/2');
       expect(response.status).toBe(200);
+      // eslint-disable-next-line no-undef
       expect(response.body).toEqual(expectedBeings[1]);
     });
   });
