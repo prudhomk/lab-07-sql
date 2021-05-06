@@ -111,20 +111,20 @@ describe('API Routes', () => {
       expect(response.body).toEqual(expect.arrayContaining(expected));
     });
 
-    test.skip('GET kirby from /api/strongest/:id', async () => {
+    test('GET kirby from /api/strongest/:id', async () => {
       const response = await request.get(`/api/strongest/${kirby.id}`);
       expect(response.status).toBe(200);
-      expect(response.body).toEqual(kirby);
+      expect(response.body).toEqual({ ...kirby, userName: user.name });
     });
 
-    test.skip('DELETE kirby from /api/strongest/:id', async () => {
+    test('DELETE kirby from /api/strongest/:id', async () => {
       const response = await request.delete(`/api/strongest/${kirby.id}`);
       expect(response.status).toBe(200);
       expect(response.body).toEqual(kirby);
 
       const getResponse = await request.get('/api/strongest');
       expect(getResponse.status).toBe(200);
-      expect(getResponse.body).toEqual(expect.arrayContaining([daffy, tomie]));
+      expect(getResponse.body.find(being => being.id === kirby.id)).toBeUndefined();
     });
   
   
@@ -150,6 +150,32 @@ describe('API Routes', () => {
       expect(response.status).toBe(200);
       // eslint-disable-next-line no-undef
       expect(response.body).toEqual(expectedBeings[1]);
+    });
+  });
+
+  describe('seed data tests', () => {
+
+    beforeAll(() => {
+      execSync('npm run setup-db');
+    });
+
+    test('GET /api/strongest', async () => {
+      const response = await request.get('/api/strongest');
+
+      expect(response.status).toBe(200);
+
+      expect(response.body.length).toBeGreaterThan(0);
+
+      expect(response.body[0]).toEqual({
+        id: expect.any(Number),
+        name: expect.any(String),
+        type: expect.any(String),
+        description: expect.any(String),
+        power: expect.any(Number),
+        isGood: expect.any(Boolean),
+        userId: expect.any(Number),
+        userName: expect.any(String)
+      });
     });
   });
 });
