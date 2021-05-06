@@ -1,0 +1,2 @@
+DATABASE_URL= postgres://zzazbbraxkagut:c5bb083cface3317ea9a7285efb89d2afda7c64eef0c2df342869b5fea6cf79a@ec2-107-22-83-3.compute-1.amazonaws.com:5432/d8gsjrdrs3lbgo
+DEV_DATABASE_URL = postgres://stmxutnndndksm:27a1eb8a0f9f64e5e1971b8f50dd2f494fd9c98fa7c65c2e0c282655d3ef64df@ec2-107-22-83-3.compute-1.amazonaws.com:5432/d9ud08elj4500n
