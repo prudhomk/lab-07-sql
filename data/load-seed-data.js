@@ -26,10 +26,10 @@ async function run() {
     await Promise.all(
       strongest.map(being => {
         return client.query(`
-          INSERT INTO strongest (name, type, description, power, is_good, user_id)
-          VALUES ($1, $2, $3, $4, $5, $6);
+          INSERT INTO strongest (name, type, image, description, power, is_good, user_id)
+          VALUES ($1, $2, $3, $4, $5, $6, $7);
         `,
-        [being.name, being.type, being.description, being.power, being.isGood, user.id]);
+        [being.name, being.type, being.image, being.description, being.power, being.isGood, user.id]);
       })
     );
     

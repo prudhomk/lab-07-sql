@@ -37,6 +37,7 @@ describe('API Routes', () => {
       id: expect.any(Number),
       name: 'Kirby',
       type: 'Bubblegum',
+      image: '/kirby.webp',
       description: 'Consumer of all, Destroyer of all, Friend to all.',
       power: 1000000000,
       isGood: true
@@ -46,6 +47,7 @@ describe('API Routes', () => {
       id: expect.any(Number),
       name: 'Daffy Duck',
       type: 'Duck',
+      image: '/daffy.webp',
       description: 'Cartoon Duck',
       power: 1,
       isGood: true
@@ -55,6 +57,7 @@ describe('API Routes', () => {
       id: expect.any(Number),
       name: 'Tomie',
       type: 'Demon',
+      image: '/tomie.jpg',
       description: 'Bewitching to the point of insanity.',
       power: 10000,
       isGood: false
@@ -170,6 +173,7 @@ describe('API Routes', () => {
         id: expect.any(Number),
         name: expect.any(String),
         type: expect.any(String),
+        image: expect.any(String),
         description: expect.any(String),
         power: expect.any(Number),
         isGood: expect.any(Boolean),
