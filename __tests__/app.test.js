@@ -72,7 +72,7 @@ describe('API Routes', () => {
       const response = await request
         .post('/api/strongest')
         .send(kirby);
-
+      
       expect(response.status).toBe(200);
       expect(response.body).toEqual(kirby);
 
@@ -82,6 +82,7 @@ describe('API Routes', () => {
     test('PUT updated kirby to /api/strongest/:id', async () => {
     
       kirby.isGood = false;
+
       const response = await request 
         .put(`/api/strongest/${kirby.id}`)
         .send(kirby);
