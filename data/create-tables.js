@@ -23,6 +23,7 @@ async function run() {
         id SERIAL PRIMARY KEY NOT NULL,
         name VARCHAR(512) NOT NULL,
         type VARCHAR(512) NOT NULL,
+        image VARCHAR (512) NOT NULL,
         description VARCHAR(1024) NOT NULL,
         power INTEGER NOT NULL,
         is_good BOOLEAN DEFAULT FALSE,
